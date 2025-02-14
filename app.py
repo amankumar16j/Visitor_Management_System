@@ -48,8 +48,8 @@ elif choice=="Security Role":
             st.title("Action You Want To Perform")
             Action2 = st.selectbox("Select Your Action", ["Select Action","Register Visitor", "Check Out Visitor"],index=0)
             if Action2=="Register Visitor":
-                visitor_registration()
-                visitor_status()
+                visitor_id=visitor_registration()
+                visitor_status(visitor_id)
             if Action2== "Check Out Visitor":
                 check_out_visitor()
             if Action2=="Select Action":

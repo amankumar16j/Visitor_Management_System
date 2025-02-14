@@ -5,7 +5,7 @@ def init_db():
     cursor = conn.cursor()
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS visitors (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            id TEXT PRIMARY KEY,
             name TEXT,
             contact TEXT,
             purpose TEXT,
@@ -15,6 +15,7 @@ def init_db():
             checkout_time TIMESTAMP,
             status TEXT DEFAULT 'Pending',
             photo_path TEXT,
+            government_id_proof TEXT,
             qr_path TEXT
         )
     ''')

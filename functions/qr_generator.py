@@ -5,7 +5,7 @@ import smtplib
 from email.message import EmailMessage
 
 
-def send_QR_to_visitor(visitor_name, contact, purpose, photo_path,host_name):
+def send_QR_to_visitor(visitor_id,visitor_name, contact, purpose, photo_path,host_name):
     sender_email = "sam1sepagrawal@gmail.com"  # Replace with your Gmail
     app_password = "gtac gdts ypuz zlib"  # Replace with the generated App Password
     host_email="aman17jilm@gmail.com"
@@ -23,6 +23,7 @@ def send_QR_to_visitor(visitor_name, contact, purpose, photo_path,host_name):
 
     ### **Visitor Details:**  
     - **Name:** {visitor_name}  
+    - **Visitor ID:** {visitor_id}  
     - **Contact:** {contact}  
     - **Purpose of Visit:** {purpose}  
     - **Meeting With:** {host_name} 
@@ -56,19 +57,19 @@ def send_QR_to_visitor(visitor_name, contact, purpose, photo_path,host_name):
 
 
 
-def generate_qr(visitor_name):
+def generate_qr(visitor_id):
     visitor_manager=VisitorManagement()
-    data=visitor_manager.get_visitor_data(visitor_name)
+    data=visitor_manager.get_visitor_data(visitor_id)
     QR_PATH = "qr_codes"
     if not os.path.exists(QR_PATH):
         os.makedirs(QR_PATH)
-    qr = qrcode.make(f"Visitor ID: {visitor_name}")
-    qr_path = f"{QR_PATH}/visitor_{visitor_name}.png"
+    qr = qrcode.make(f"Visitor ID: {visitor_id}")
+    qr_path = f"{QR_PATH}/visitor_{visitor_id}.png"
     qr.save(qr_path)
-    visitor_manager.update_QR_path(qr_path,visitor_name)
-    # visitor_name=data[1]
+    visitor_manager.update_QR_path(qr_path,visitor_id)
+    visitor_name=data[1]
     visitor_contact=data[2]
     visitor_purpose=data[3]
     visitor_host=data[4]
-    send_QR_to_visitor(visitor_name,visitor_contact,visitor_purpose,qr_path,visitor_host)
+    send_QR_to_visitor(visitor_id,visitor_name,visitor_contact,visitor_purpose,qr_path,visitor_host)
     return qr_path

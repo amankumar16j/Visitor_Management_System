@@ -14,7 +14,7 @@ def approval_portal():
             purpose = visitor[3]
             host = visitor[4]
 
-            st.write(f"**Visitor:** {visitor_name} | **Purpose:** {purpose} | **Host:** {host}")
+            st.write(f"**Visitor_ID:**{visitor_id} | **Visitor:** {visitor_name} | **Purpose:** {purpose} | **Host:** {host}")
             col1, col2 = st.columns(2)
             
             if col1.button(f"Approve {visitor_name}", key=f"approve_{visitor_id}"):
