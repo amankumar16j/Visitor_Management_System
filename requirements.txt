@@ -1,0 +1,7 @@
+bcrypt
+pandas
+streamlit
+sqlite3
+Pillow
+smtplib
+qrcode
