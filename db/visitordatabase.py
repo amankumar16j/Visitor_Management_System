@@ -11,7 +11,7 @@ def init_db():
             purpose TEXT,
             host TEXT,
             company TEXT,
-            checkin_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            checkin_time TIMESTAMP,
             checkout_time TIMESTAMP,
             status TEXT DEFAULT 'Pending',
             photo_path TEXT,

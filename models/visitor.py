@@ -7,11 +7,11 @@ class VisitorManagement:
         self.db_path=db_path
         init_db()
 
-    def insert_visitor(self,visitor_id,name, contact, purpose, host, company,photo_path,government_id_proof_path):
+    def insert_visitor(self,visitor_id,name, contact, purpose, host, company,photo_path,government_id_proof_path,checkin_time):
         conn = sqlite3.connect(self.db_path)
         cursor = conn.cursor()
-        cursor.execute("INSERT INTO visitors (id,name, contact, purpose, host, company, photo_path, government_id_proof) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
-                    (visitor_id, name, contact, purpose, host, company, photo_path,government_id_proof_path))
+        cursor.execute("INSERT INTO visitors (id,name, contact, purpose, host, company,checkin_time ,photo_path, government_id_proof) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                    (visitor_id, name, contact, purpose, host, company,checkin_time, photo_path,government_id_proof_path))
         conn.commit()
         conn.close()
 

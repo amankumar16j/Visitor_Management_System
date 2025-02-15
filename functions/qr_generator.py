@@ -3,9 +3,10 @@ import os
 from models.visitor import VisitorManagement
 import smtplib
 from email.message import EmailMessage
+from functions.generate_identity_card import id_generator 
+from io import BytesIO
 
-
-def send_QR_to_visitor(visitor_id,visitor_name, contact, purpose, photo_path,host_name):
+def send_QR_to_visitor(visitor_id,visitor_name, contact, purpose, photo_path,qr_path,host_name,company):
     sender_email = "sam1sepagrawal@gmail.com"  # Replace with your Gmail
     app_password = "gtac gdts ypuz zlib"  # Replace with the generated App Password
     host_email="aman17jilm@gmail.com"
@@ -39,12 +40,17 @@ def send_QR_to_visitor(visitor_id,visitor_name, contact, purpose, photo_path,hos
     """)
 
 
-    # Attach the visitor's photo
-    if os.path.exists(photo_path):
-        with open(photo_path, 'rb') as f:
-            img_data = f.read()
-            msg.add_attachment(img_data, maintype='image', subtype='jpeg', filename=os.path.basename(photo_path))
+    if photo_path and qr_path:
+        id_card_image = id_generator(visitor_name, visitor_id, host_name, company, photo_path, qr_path)
+        # st.image(id_card_image, caption="Generated ID Card", use_column_width=False)
 
+
+    # Attach the visitor's photo
+    if id_card_image:
+        img_bytes = BytesIO()
+        id_card_image.save(img_bytes, format="PNG")  # Convert PIL image to bytes
+        img_bytes.seek(0)
+        msg.add_attachment(img_bytes.getvalue(), maintype='image', subtype='png', filename="Visitor_ID_Card.png")
     # Send email using SMTP with App Password
     try:
         with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
@@ -71,5 +77,17 @@ def generate_qr(visitor_id):
     visitor_contact=data[2]
     visitor_purpose=data[3]
     visitor_host=data[4]
-    send_QR_to_visitor(visitor_id,visitor_name,visitor_contact,visitor_purpose,qr_path,visitor_host)
-    return qr_path
+    visitor_photo=data[9]
+    company_name=data[5]
+    send_QR_to_visitor(visitor_id,visitor_name,visitor_contact,visitor_purpose,visitor_photo,qr_path,visitor_host,company_name)
+    if visitor_photo and qr_path:
+        id_card_image = id_generator(visitor_name, visitor_id, visitor_host, company_name, visitor_photo, qr_path)
+
+        # Convert PIL image to bytes
+        img_bytes = BytesIO()
+        id_card_image.save(img_bytes, format="PNG")
+        img_bytes.seek(0)
+        
+        return img_bytes.getvalue()
+    
+    return None

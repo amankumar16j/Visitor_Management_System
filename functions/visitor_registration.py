@@ -60,6 +60,8 @@ def send_email_to_host(visitor_id,visitor_name, contact, purpose, company, photo
 def visitor_registration():
     st.title("Visitor Registration")
 
+    current_datetime = datetime.now()
+    checkin_time=current_datetime.strftime("%Y-%m-%d %H:%M:%S")
     visitor_manager = VisitorManagement() 
     name = st.text_input("Full Name")
     contact = st.text_input("Contact (Phone/Email)")
@@ -85,7 +87,7 @@ def visitor_registration():
             image2 = Image.open(government_id_proof)
             image2.save(government_id_proof_path)
 
-            visitor_manager.insert_visitor(visitor_id,name, contact, purpose, host, company, photo_path, government_id_proof_path)
+            visitor_manager.insert_visitor(visitor_id,name, contact, purpose, host, company, photo_path, government_id_proof_path,checkin_time)
             email_sent = send_email_to_host(visitor_id,name, contact, purpose, company, photo_path,government_id_proof_path)
 
             if "success_message" not in st.session_state:

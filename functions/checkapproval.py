@@ -4,6 +4,7 @@ from functions.qr_generator import generate_qr
 from PIL import Image
 from models.visitor import VisitorManagement
 import os
+from io import BytesIO
 
 def visitor_status(visitor_id):
     st.title("Visitor Status Check")
@@ -18,11 +19,19 @@ def visitor_status(visitor_id):
 
         if status == "Approved":
             st.success(f"Visitor {visitor_name} is Approved ✅")
-            qr_path = generate_qr(visitor_id) # Generate QR for approved visitor
-            if os.path.exists(qr_path):
-                with open(qr_path, 'rb') as f:
-                    img_data = f.read()
-            st.image(img_data, caption="Your QR Code", width=200)
+            
+            id_card_data = generate_qr(visitor_id)  # Get ID card as bytes
+            
+            if id_card_data:  # Check if image data is valid
+                st.download_button(
+                    label="📥 Download ID Card",
+                    data=id_card_data,
+                    file_name="Visitor_ID_Card.png",
+                    mime="image/png"
+                )
+                st.image(Image.open(BytesIO(id_card_data)), caption="Generated ID Card", use_column_width=False)
+            else:
+                st.error("Failed to generate ID card. Please try again.")  
         elif status == "Rejected":
             st.error(f"Visitor {visitor_name} is Rejected ❌")
         elif status:

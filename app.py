@@ -9,7 +9,8 @@ from functions.visitor_registration import visitor_registration
 from functions.approval_portal import approval_portal
 from functions.checkapproval import visitor_status
 from functions.checkout import check_out_visitor
-
+from preapproval_functions.preapproval_registration import preapproval_registration
+from preapproval_functions.validate_preapprovals import validate_preapproval
 # from views.register_user import register
 
 # Initialize session state
@@ -24,7 +25,7 @@ choice = st.sidebar.selectbox("Go to", ["Login","Security Role","Admin Role","Ho
 
 if choice == "Login":
     login()
-    
+     
 elif choice == "Admin Role":
     if st.session_state.authenticated:
         if st.session_state.role == "Admin":
@@ -46,7 +47,7 @@ elif choice=="Security Role":
     if st.session_state.authenticated:
         if st.session_state.role == "Security":
             st.title("Action You Want To Perform")
-            Action2 = st.selectbox("Select Your Action", ["Select Action","Register Visitor", "Check Out Visitor"],index=0)
+            Action2 = st.selectbox("Select Your Action", ["Select Action","Register Visitor","Pre-Approval Checkin", "Check Out Visitor"],index=0)
             if Action2=="Register Visitor":
                 visitor_id=visitor_registration()
                 visitor_status(visitor_id)
@@ -54,6 +55,8 @@ elif choice=="Security Role":
                 check_out_visitor()
             if Action2=="Select Action":
                 st.warning("Select any Action from Selector to Proceed")
+            if Action2=="Pre-Approval Checkin":
+                validate_preapproval()
         else:
            st.warning("You are not allowed to access Security dashboard")
     else:
@@ -62,7 +65,14 @@ elif choice=="Security Role":
 elif choice=="Host":
     if st.session_state.authenticated:
         if st.session_state.role == "Host":
-            approval_portal()
+            st.title("Action You Want To Perform")
+            Action3 = st.selectbox("Select Your Action", ["Select Action","Approve Visitor", "Generate Preapproval","Show My Visitors"],index=0)
+            if Action3=="Approve Visitor":
+                approval_portal()
+            if Action3=="Generate Preapproval":
+                preapproval_registration()
+            if Action3=="Show My Visitors":
+                dashboard()
         else:
            st.warning("You are not allowed to access this funtion")
     else:

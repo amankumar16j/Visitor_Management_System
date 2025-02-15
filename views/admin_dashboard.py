@@ -10,7 +10,7 @@ def admin_dashboard():
     st.subheader("Existing Users")
     conn = sqlite3.connect('users.db')
     cursor = conn.cursor()
-    cursor.execute("SELECT username as ua, role as ra FROM users")
+    cursor.execute("SELECT username , role  FROM users")
     users = cursor.fetchall()
     conn.close()
     
