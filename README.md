@@ -13,70 +13,104 @@ The **Visitor Management System** is a web-based application designed to streaml
 - **Search & Filter**: Easily search for visitor records.
 
 ## 🛠️ Tech Stack
-- **Frontend**: React.js, HTML, CSS, Bootstrap
-- **Backend**: Node.js, Express.js
-- **Database**: MongoDB
-- **Authentication**: JWT (JSON Web Token)
-- **Deployment**: Docker, AWS/GCP
+- **Frontend:** Streamlit  
+- **Backend:** Python + Streamlit  
+- **Database:** SQLite3  
+- **Authentication:** bcrypt  
 
-## 📌 Installation & Setup
-### Prerequisites
-Ensure you have the following installed on your system:
-- Node.js (v16+)
-- MongoDB
-- Git
-- Docker (optional for containerization)
-
-### Steps to Run Locally
-1. **Clone the Repository**
-   ```sh
-   git clone https://github.com/yourusername/visitor-management-system.git
-   cd visitor-management-system
-   ```
-2. **Install Dependencies**
-   ```sh
-   npm install
-   ```
-3. **Set Up Environment Variables**
-   Create a `.env` file and configure the following:
-   ```env
-   PORT=5000
-   MONGO_URI=your_mongodb_connection_string
-   JWT_SECRET=your_secret_key
-   ```
-4. **Run the Application**
-   ```sh
-   npm start
-   ```
-5. **Access the Application**
-   Open `http://localhost:5000` in your browser.
-
-## 📂 Folder Structure
+## 📂 Project Structure
 ```
-📦 visitor-management-system
-├── 📂 frontend       # React-based UI
-├── 📂 backend        # Express.js API
-├── 📂 database       # MongoDB schema files
-├── 📂 config         # Configuration files
-├── 📂 public         # Static files
-├── .env.example     # Sample environment variables
-├── package.json     # Project dependencies
-└── README.md        # Documentation
+Visitor-Management-System/
+├── db/
+│   ├── memberdatabase.py
+│   ├── pre_approval_database.py
+│   └── visitordatabase.py
+├── functions/
+│   ├── approval_portal.py
+│   ├── checkapproval.py
+│   ├── checkout.py
+│   ├── generate_identity_card.py
+│   ├── generate_visitor_id.py
+│   ├── qr_generator.py
+│   └── visitor_registration.py
+├── government_id_proof/
+├── models/
+│   ├── preapproval.py
+│   ├── user.py
+│   └── visitor.py
+├── photo/
+├── preapproval_functions/
+│   ├── preapproval_registration.py
+│   └── validate_preapprovals.py
+├── qr_code/
+├── utils/
+│   └── security.py
+├── views/
+│   ├── admin_dashboard.py
+│   ├── dashboard.py
+│   ├── delete.py
+│   ├── login.py
+│   └── signup.py
+├── app.py
+├── createAdmin.py
+├── pre_approval.db
+├── requirements.txt
+├── users.db
+└── visitor_management.db
 ```
+
+## 🚀 Installation and Setup
+
+### 1️⃣ Install Python
+Ensure you have **Python 3.8+** installed. You can download it from [python.org](https://www.python.org/downloads/).
+
+### 2️⃣ Install Dependencies
+Run the following command in the project root directory to install required packages:
+```bash
+pip install -r requirements.txt
+```
+
+### 3️⃣ Run the Application
+To start the Streamlit application, use:
+```bash
+streamlit run app.py
+```
+
+## 💂️ Admin Login Guide
+
+1. Navigate to the **Login** page.
+2. Enter the following credentials:
+   - **Username:** `Admin`
+   - **Password:** `Admin@1234`
+3. Click **Login**.
+4. Once logged in, go to **Admin Role**.
+5. You can **create a user**, **delete a user**, or **view user details**.
+
+## 🏠 Host Login Guide
+
+1. Navigate to the **Login** page.
+2. Enter the following credentials:
+   - **Username:** `Raj Kumar`
+   - **Password:** `Raj1234`
+3. Click **Login**.
+4. Once logged in, go to **Admin Role**.
+5. You can **Approve Visitor Request**, **Generate Preapproval**, and **Show Visitors Details**.
+
+## 🔒 Security Login Guide
+
+1. Navigate to the **Login** page.
+2. Enter the following credentials:
+   - **Username:** `Aman Kumar`
+   - **Password:** `Aman1234`
+3. Click **Login**.
+4. Once logged in, go to **Admin Role**.
+5. You can **Register Visitor**, **Validate Pre-Approval Check-in**, and **Check Out Visitor**.
+
+## 🛡️ Security Measures
+- **Password Hashing**: Secure authentication with bcrypt.
+- **Database Security**: Using SQLite3 with proper data handling.
 
 ## 📜 License
-This project is licensed under the MIT License. Feel free to modify and use it as per your requirements.
+This project is licensed under the MIT License.
 
-## 💡 Future Enhancements
-- Implement facial recognition for visitor verification
-- Integrate AI-based visitor analytics
-- Add multi-language support
-
-## 🤝 Contributing
-We welcome contributions! Feel free to fork the repository and create a pull request with improvements.
-
-## 📞 Contact
-For any inquiries or issues, reach out to:
-- 📧 Email: your.email@example.com
-- 🔗 GitHub: [yourusername](https://github.com/yourusername)
-
+---
