@@ -166,6 +166,9 @@ Each server will now be accessible on its respective port:
 ## Demo Video 
 https://drive.google.com/file/d/11P2of7gfuAI4K2KGVpt1D0MdA9XHtrdf/view?usp=sharing
 
+## Documentation
+https://drive.google.com/file/d/1iovrOLaDTxjjRwRuX8CasnwgpnGJBAI3/view?usp=sharing
+
 ## 🛡️ Security Measures
 - **Password Hashing**: Secure authentication with bcrypt.
 - **Database Security**: Using SQLite3 with proper data handling.
