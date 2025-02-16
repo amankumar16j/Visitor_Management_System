@@ -90,7 +90,7 @@ streamlit run app.py
 ![image](https://github.com/user-attachments/assets/56b683c4-4ca4-46a2-b74e-2537f8cf6200)
 ![image](https://github.com/user-attachments/assets/73c5f43c-77c2-4b2e-ab93-fecdaf6a432e)
 
-### View details to users-> in "Select Your Action" -> select "List User Details"
+### To View details of users-> in "Select Your Action" -> select "List User Details"
 ![image](https://github.com/user-attachments/assets/19cb2558-031e-4150-8d8a-45758c4ece6c)
 
 ### To delete a users-> in "Select Your Action" -> select "Delete User" -> fill Username -> click "Delete User" button
@@ -138,7 +138,7 @@ streamlit run app.py
 ![image](https://github.com/user-attachments/assets/74fca7d7-43c6-4ae3-93a3-f4e5f011ba2c)
 
 
-##To run the Host, Security, and Admin servers in parallel, follow these steps:
+## To run the Host, Security, and Admin servers in parallel, follow these steps:
 
 1. **Open Three Terminal Windows**  
    You need to run three instances of Streamlit on different ports.
