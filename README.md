@@ -177,3 +177,223 @@ https://drive.google.com/file/d/1iovrOLaDTxjjRwRuX8CasnwgpnGJBAI3/view?usp=shari
 This project is licensed under the MIT License.
 
 ---
+
+# 📌 Visitor Management System  
+
+The **Visitor Management System** is a web-based application designed to efficiently manage visitors in an organization. It helps track visitor details, their purpose of visit, check-in and check-out times, and host details.  
+
+---
+
+## 🚀 Features  
+
+✅ **User Authentication** – Secure login for administrators, hosts, and security personnel.  
+✅ **Visitor Registration** – Capture visitor details like name, contact, and purpose of visit.  
+✅ **Host Notification** – Automatically notify hosts when a visitor arrives.  
+✅ **Check-in & Check-out System** – Log entry and exit times efficiently.  
+✅ **Visitor Badge Generation** – Generate and print visitor badges.  
+✅ **Data Analytics & Reports** – Track visitor statistics and generate reports.  
+✅ **Search & Filter** – Easily find visitor records.  
+
+---
+
+## 🛠️ Tech Stack  
+
+- **Frontend:** Streamlit  
+- **Backend:** Python + Streamlit  
+- **Database:** SQLite3  
+- **Authentication:** bcrypt  
+
+---
+
+## 📂 Project Structure  
+
+```
+Visitor-Management-System/
+├── db/
+│   ├── memberdatabase.py
+│   ├── pre_approval_database.py
+│   └── visitordatabase.py
+├── functions/
+│   ├── approval_portal.py
+│   ├── checkapproval.py
+│   ├── checkout.py
+│   ├── generate_identity_card.py
+│   ├── generate_visitor_id.py
+│   ├── qr_generator.py
+│   └── visitor_registration.py
+├── models/
+│   ├── preapproval.py
+│   ├── user.py
+│   └── visitor.py
+├── preapproval_functions/
+│   ├── preapproval_registration.py
+│   └── validate_preapprovals.py
+├── utils/
+│   └── security.py
+├── views/
+│   ├── admin_dashboard.py
+│   ├── dashboard.py
+│   ├── delete.py
+│   ├── login.py
+│   └── signup.py
+├── app.py
+├── createAdmin.py
+├── requirements.txt
+├── users.db
+└── visitor_management.db
+```
+
+---
+
+## 🚀 Installation and Setup  
+
+### 1️⃣ Install Python  
+Ensure **Python 3.10+** is installed. Download it from [python.org](https://www.python.org/downloads/).  
+
+### 2️⃣ Install Dependencies  
+Run the following command in the project root directory:  
+```bash
+pip install -r requirements.txt
+```
+
+### 3️⃣ Run the Application  
+To start the Streamlit app, execute:  
+```bash
+streamlit run app.py
+```
+
+---
+
+## 💂‍♂️ Admin Login Guide  
+
+### Steps to Log in as Admin:  
+1. Navigate to the **Login** page.  
+2. Enter credentials:  
+   - **Username:** `Admin`  
+   - **Password:** `Admin@1234`  
+3. Click **Login**.  
+4. Navigate to **Admin Role** where you can:  
+   - **Create Users**  
+   - **Delete Users**  
+   - **View User Details**  
+
+### 👤 Creating a User:  
+1. Fill in the details.  
+2. Select a user role.  
+3. Click **Sign Up**.  
+
+### 📋 Viewing User Details:  
+1. In **"Select Your Action"**, choose **"List User Details"**.  
+
+### ❌ Deleting a User:  
+1. In **"Select Your Action"**, choose **"Delete User"**.  
+2. Enter the **Username**.  
+3. Click **Delete User**.  
+
+---
+
+## 🏠 Host Login Guide  
+
+### Steps to Log in as Host:  
+1. Navigate to the **Login** page.  
+2. Enter credentials:  
+   - **Username:** `Raj Kumar`  
+   - **Password:** `Raj1234`  
+3. Click **Login**.  
+4. Navigate to **Host Role** where you can:  
+   - **Approve Visitor Requests**  
+   - **Generate Pre-Approvals**  
+   - **View Visitor Details**  
+
+### ✅ Approving a Visitor Request:  
+1. Open the **Visitor Request** section.  
+2. Select a request.  
+3. Click **Approve**.  
+
+### 📝 Generating a Pre-Approval:  
+1. Fill in visitor details.  
+2. Click **Register Pre-Approval**.  
+
+### 📌 Viewing Visitors Assigned to a Host:  
+1. Navigate to **Show My Visitors**.  
+
+---
+
+## 🔒 Security Login Guide  
+
+### Steps to Log in as Security:  
+1. Navigate to the **Login** page.  
+2. Enter credentials:  
+   - **Username:** `Aman Kumar`  
+   - **Password:** `Aman1234`  
+3. Click **Login**.  
+4. Navigate to **Security Role** where you can:  
+   - **Register Visitors**  
+   - **Validate Pre-Approvals**  
+   - **Check Out Visitors**  
+
+### 🆕 Registering a Visitor:  
+1. Enter visitor details.  
+2. Click **Register**.  
+
+### ✅ Validating a Pre-Approval:  
+1. Search for the visitor.  
+2. Check the visitor's status.  
+
+### ⏳ Checking Out a Visitor:  
+1. Enter the **Visitor ID**.  
+2. Click **Check Out**.  
+
+---
+
+## 🌐 Running Multiple Servers (Admin, Host, Security)  
+
+To run the **Admin, Host, and Security** servers simultaneously, follow these steps:
+
+1️⃣ **Open three terminal windows**.  
+2️⃣ **Run the Admin server**:  
+```bash
+streamlit run app.py --server.port 8501
+```  
+3️⃣ **Run the Host server**:  
+```bash
+streamlit run app.py --server.port 8502
+```  
+4️⃣ **Run the Security server**:  
+```bash
+streamlit run app.py --server.port 8503
+```  
+
+### 🔗 Access the panels here:  
+- **Admin Panel** → `http://localhost:8501`  
+- **Host Panel** → `http://localhost:8502`  
+- **Security Panel** → `http://localhost:8503`  
+
+---
+
+## 🎥 Demo Video  
+🔗 [Watch the Demo](https://drive.google.com/file/d/11P2of7gfuAI4K2KGVpt1D0MdA9XHtrdf/view?usp=sharing)  
+
+## 📜 Documentation  
+📄 [Read Full Documentation](https://drive.google.com/file/d/1iovrOLaDTxjjRwRuX8CasnwgpnGJBAI3/view?usp=sharing)  
+
+---
+
+## 🛡️ Security Measures  
+
+🔹 **Password Hashing** – Secure authentication with bcrypt.  
+🔹 **Database Security** – SQLite3 with secure data handling.  
+
+---
+
+## 📜 License  
+This project is licensed under the **MIT License**.  
+
+---
+
+### ✅ What’s Improved?  
+✔️ **Better Formatting & Spacing**  
+✔️ **Clear Step-by-Step Instructions**  
+✔️ **Readable and Well-Organized Sections**  
+
+Now your README looks professional and is easy to follow! 🚀 Let me know if you need any further refinements. 😊
