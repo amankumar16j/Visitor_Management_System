@@ -163,6 +163,9 @@ Each server will now be accessible on its respective port:
 - **Host Panel** → `http://localhost:8502`
 - **Security Panel** → `http://localhost:8503`
 
+## Demo Video 
+https://drive.google.com/file/d/11P2of7gfuAI4K2KGVpt1D0MdA9XHtrdf/view?usp=sharing
+
 ## 🛡️ Security Measures
 - **Password Hashing**: Secure authentication with bcrypt.
 - **Database Security**: Using SQLite3 with proper data handling.
