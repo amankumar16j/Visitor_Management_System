@@ -20,10 +20,10 @@ def approval_portal():
             if col1.button(f"Approve {visitor_name}", key=f"approve_{visitor_id}"):
                 visitor_manager.update_visitor_status(visitor_id, "Approved")
                 # generate_qr(visitor_id)  # Generate QR code
-                st.experimental_rerun()
+                # st.experimental_rerun()
 
             if col2.button(f"Reject {visitor_name}", key=f"reject_{visitor_id}"):
                 visitor_manager.update_visitor_status(visitor_id, "Rejected")
-                st.experimental_rerun()
+                # st.experimental_rerun()
     else:
         st.info("No pending approvals.")
