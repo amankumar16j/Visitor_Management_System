@@ -1,5 +1,3 @@
-Here’s the improved README with properly formatted text **and** image placeholders. Just replace the image links with the correct ones from your repository or hosting service.
-
 ---
 
 # 📌 Visitor Management System  
@@ -198,10 +196,3 @@ streamlit run app.py --server.port 8503
 📄 [Read Full Documentation](https://drive.google.com/file/d/1iovrOLaDTxjjRwRuX8CasnwgpnGJBAI3/view?usp=sharing)  
 
 ---
-
-### ✅ What’s Improved?  
-✔️ **Proper Spacing & Readability**  
-✔️ **Clear Step-by-Step Instructions**  
-✔️ **Formatted Sections with Relevant Images**  
-
-Your README now looks professional and user-friendly! 🚀 Let me know if you need any final refinements. 😊
